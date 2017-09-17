@@ -372,6 +372,6 @@ func (l logger) WithFields(fields Fields) *logrus.Entry {
 }
 
 // WithFields logs a message with fields
-func WithFields(fields Fields) {
-	baseLogger.sourced().WithFields(fields)
+func WithFields(fields Fields) *logrus.Entry {
+	return baseLogger.sourced().WithFields(fields)
 }
