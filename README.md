@@ -1,5 +1,3 @@
-### Add logging to file functionality in github.com/prometheus/common/log
-
 # Logrus Wrapper
 
 This is a wrapper of Logrus and the original work is of github.com/prometheus/common/log authors. I have added two functionalities on top of the existing code. 
