@@ -10,7 +10,7 @@ This is a wrapper of Logrus and the original work is of github.com/prometheus/co
 PS: The code which I changed refers to commit #61f87aac8082fa8c3c5655c7608d7478d46ac2ad.
 
 #### Feature 1
-This is an improvement for github.com/prometheus/common/log package where it lets you write logs to a file. Existing NewLogger function looks like
+This is an improvement for github.com/prometheus/common/log package where it lets you write logs to a file. Existing NewLogger function looked like
 
 ````
 func NewLogger(w io.Writer) Logger {
@@ -22,7 +22,7 @@ func NewLogger(w io.Writer) Logger {
 
 But this implementation writes log to console only/stdout. See issue #82, #104 raising the same thing.
 
-I changed the function like this:
+I changed the function to this:
 
 ````
 func NewLogger() Logger {
@@ -30,7 +30,7 @@ func NewLogger() Logger {
 	return logger{entry: logrus.NewEntry(l)}
 }
 ````
-and added a new `SetOutput` function for the purpose of setting output.
+and added a new `SetOutput` function for the purpose of setting output i.e., writing to a file.
 
 ````
 func SetOutput(w io.Writer) {
@@ -39,7 +39,7 @@ func SetOutput(w io.Writer) {
 ````
 
 #### Feature 2
-I have also added functionality to call `WithFields` so now you can do something like this:
+I have also added functionality to call `WithFields` function, so now you can do something like this:
 
 ````
 log.WithFields(log.Fields{
